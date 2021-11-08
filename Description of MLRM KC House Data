@@ -1,0 +1,43 @@
+# BUSINESS ANALYTICS APPLICATION: 
+We can predict the dependent variable with the help of independent variables. For prediction of price, it is widely used in businesses. It is applicable 
+to predict price of houses, used cars or some other things.
+
+## DATA: 
+This dataset contains house sale prices for King County, which includes Seattle. It includes homes sold between May 2014 and May 2015. The dataset provides 
+a huge number of independent variables. We have taken the most important independent variables that can influence House prices.
+
+### DESCRIPTION: 
+In MLRM, we do explanatory modelling. The main focus is to explain the relationship between the independent and dependent variables. But, Linear Regression 
+as a machine learning technique predicts the values of new data. It is a Supervised ML technique.
+This dataset contains house sale prices for King County, which includes Seattle. It includes homes sold between May 2014 and May 2015. The dataset provides 
+a huge number of independent variables. We have taken the most important independent variables that can influence House prices. We also calculated the age column 
+(i.e. age of the houses in 2014) to make our analysis simpler. We have also created a column renovation (0 or 1) as a dummy variable. The independent variables 
+used in our analysis are:
+i. Number of bedrooms
+ii. Number of bathrooms
+iii. Living area in square-foot
+iv. Lot area in square-foot
+v. Number of floors
+vi. View
+vii. Waterfront
+viii. Condition of house
+ix. Grade of house
+x. Age of house
+xi. Renovated or not
+
+####RESULTS & DISCUSSION: 
+We have reduced the data-frame to 1000 observations using the ‘iloc’ function. We have set the predictors and outcome variable and split the 40% data as 
+training data. Random state=1 specifies that the software should do it randomly. And, then we perform regression on training data.
+For regression modelling on validation data, RMSE is higher. It signifies that, training data is more accurate. MAE and MAPE have also deteriorated (i.e. values 
+rose by a margin), which again signifies, training data is a better predictor. The model has a slight overfitting problem.
+Adjusted 𝑅2 keeps on increasing until the 6th independent variable. Then, it starts falling. AIC is the 2nd lowest for the 6th variable. Hence, we take 
+6 independent variable: age, bedrooms, grade, sqft_living, view and waterfront and drop the other variables.
+In backward elimination model we start dropping bathrooms, sqft_lot, renovated, floors, condition and bedrooms. MAPE is slightly improved.
+In Forward selection, we start with no predictor. We add the independent variables one by one. And, we stop when the addition of variable is not statistically 
+significant. There is no intercept term here. Finally, in the stepwise selection model, we print the best fitted variables. We again run the final regression 
+with the best variables. Here, we can see the MAPE is improved and also the adjusted 𝑅2.
+
+#####IMPLICATIONS & RECOMMENDATIONS: 
+The model is widely used in practical terms. It is a more general model of prediction. There can be problems of autocorrelation, multicollinearity and 
+heteroskedasticity. These need to be eliminated with care to fit a best model.
+If the outcome variable is categorical, then we can not use this prediction technique. We need to implement Logistic Regression.
